@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $project_title = '| Digirute';
+        $project_title = '| Migas';
         View::share('title', $project_title);
         Paginator::useBootstrap();
     }

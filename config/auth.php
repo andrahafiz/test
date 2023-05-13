@@ -17,13 +17,13 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
-    'rt' => [
+    'mcs' => [
         'driver' => 'eloquent',
-        'model' => App\Models\rt::class,
+        'model' => App\Models\Mcs::class,
     ],
-    'rt' => [
+    'mcs' => [
         'driver' => 'eloquent',
-        'model' => App\Models\rw::class,
+        'model' => App\Models\RSCM::class,
     ],
 
     /*
@@ -48,13 +48,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'rt' => [
+        'mcs' => [
             'driver' => 'session',
-            'provider' => 'rts',
+            'provider' => 'mcs',
         ],
-        'rw' => [
+        'rscm' => [
             'driver' => 'session',
-            'provider' => 'rws',
+            'provider' => 'rscm',
         ],
     ],
 
@@ -80,13 +80,13 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Customer::class,
         ],
-        'rts' => [
+        'mcs' => [
             'driver' => 'eloquent',
-            'model' => App\Models\rt::class,
+            'model' => App\Models\Mcs::class,
         ],
-        'rws' => [
+        'rscm' => [
             'driver' => 'eloquent',
-            'model' => App\Models\rw::class,
+            'model' => App\Models\RSCM::class,
         ],
 
 
@@ -118,13 +118,13 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-        'rts' => [
+        'mcs' => [
             'driver' => 'eloquent',
-            'model' => App\Models\rt::class,
+            'model' => App\Models\Mcs::class,
         ],
-        'rws' => [
+        'rscm' => [
             'driver' => 'eloquent',
-            'model' => App\Models\rw::class,
+            'model' => App\Models\RSCM::class,
         ],
     ],
 

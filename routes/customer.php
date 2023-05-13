@@ -23,7 +23,6 @@ Route::middleware(['guest', 'PreventBackHistory'])->group(function () {
 
 Route::middleware(['auth', 'PreventBackHistory'])->group(function () {
     Route::post('/logout', [LoginCustomerController::class, 'logout'])->name('logout');
-    Route::get('/dashboard', [TransactionController::class, 'index'])->name('home');
 
     Route::controller(DemandController::class)
         ->group(function () {

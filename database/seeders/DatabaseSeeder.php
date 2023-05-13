@@ -21,6 +21,11 @@ class DatabaseSeeder extends Seeder
             'username' => 'autem',
             'password' => Hash::make('password')
         ]);
+        \App\Models\Mcs::create([
+            'name' => 'MCS',
+            'username' => 'mcs',
+            'password' => Hash::make('password')
+        ]);
         // $this->call([
         //     RtSeeder::class,
         //     RwSeeder::class,

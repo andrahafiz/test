@@ -2,17 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Customer\OtherController;
-use App\Http\Controllers\Customer\IuranCustomerController;
-use App\Http\Controllers\Customer\LoginCustomerController;
-use App\Http\Controllers\Customer\SuratCustomerController;
-use App\Http\Controllers\Customer\ProfileCustomerController;
-use App\Http\Controllers\Customer\KegiatanCustomerController;
-use App\Http\Controllers\Customer\DashboardCustomerController;
-use App\Http\Controllers\Customer\FasilitasCustomerController;
-use App\Http\Controllers\Customer\PengumumanCustomerController;
-use App\Http\Controllers\Customer\PengaduanController as CustomerPengaduanController;
-use App\Http\Controllers\Customer\DemandController;
+use App\Http\Controllers\MCS\DemandController;
 use App\Http\Controllers\MCS\LoginMCSController;
 
 Route::middleware(['guest:mcs', 'PreventBackHistory'])->group(function () {
@@ -26,13 +16,14 @@ Route::middleware(['auth:mcs', 'PreventBackHistory'])->group(function () {
         return 'test';
     })->name('home');
 
-    // Route::controller(DemandController::class)
-    //     ->group(function () {
-    //         Route::get('/history-gas', 'index')->name('demand.index');
-    //         Route::get('/request-gas', 'create')->name('demand.create');
-    //         Route::post('/request-gas', 'store')->name('demand.store');
-    //         Route::delete('/request-gas', 'delete')->name('demand.delete');
-    //     });
+    Route::controller(DemandController::class)
+        ->group(function () {
+            Route::get('/history-gas', 'index')->name('demand.index');
+            Route::get('/request-gas', 'indexRequest')->name('demand.request');
+            Route::get('/request-gas/approv', 'approv')->name('demand.approv');
+            // Route::post('/request-gas', 'store')->name('demand.store');
+            // Route::delete('/request-gas', 'delete')->name('demand.delete');
+        });
 });
     
     // });

@@ -77,7 +77,7 @@ use App\Http\Controllers\Admin\KelolaRTRWController;
 // });
 
 Route::get('/', function () {
-    return view('Warga.login-warga');
+    return view('login');
 })->name('warga.login')->middleware(['guest:web', 'PreventBackHistory']);
 
 

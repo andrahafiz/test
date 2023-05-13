@@ -78,7 +78,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Warga::class,
+            'model' => App\Models\Customer::class,
         ],
         'rts' => [
             'driver' => 'eloquent',

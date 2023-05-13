@@ -54,11 +54,17 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/warga.php'));
 
-            Route::prefix('RT')
-                ->name('rt.')
+            Route::prefix('pelanggan')
+                ->name('customer.')
                 ->middleware('web')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/rt.php'));
+                ->group(base_path('routes/customer.php'));
+
+            // Route::prefix('RT')
+            //     ->name('rt.')
+            //     ->middleware('web')
+            //     ->namespace($this->namespace)
+            //     ->group(base_path('routes/rt.php'));
         });
 
 

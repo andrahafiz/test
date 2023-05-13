@@ -13,9 +13,10 @@
                 <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
                             data-feather="maximize"></i></a></li>
                 <li class="onhover-dropdown p-0">
-                    <form action="{{ route('warga.logout') }}" method="POST" id="form-id">
+                    <form action="{{ route('customer.logout') }}" method="POST" id="form-id">
                         @csrf
-                        <button class="btn btn-primary-light" type="submit"><i data-feather="log-out"></i>Keluar</button>
+                        <button class="btn btn-primary-light" type="submit"><i
+                                data-feather="log-out"></i>Keluar</button>
                     </form>
                 </li>
             </ul>

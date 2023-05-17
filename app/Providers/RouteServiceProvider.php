@@ -66,6 +66,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/mcs.php'));
 
+            Route::prefix('rscm')
+                ->name('rscm.')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/rscm.php'));
+
             // Route::prefix('RT')
             //     ->name('rt.')
             //     ->middleware('web')

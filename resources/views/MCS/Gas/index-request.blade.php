@@ -1,4 +1,4 @@
-@extends('layouts.main-mcs')
+@extends('layouts.main-rscm')
 
 @section('title')
     Pengaduan Gas
@@ -10,77 +10,99 @@
 @endpush
 
 @section('container')
-    @component('components.mcs.breadcrumb')
+    @component('components.rscm.breadcrumb')
         @slot('breadcrumb_title')
             <h3>Data Permintaan Gas ({{ now()->format('Y-m-d') }})</h3>
         @endslot
         {{-- <li class="breadcrumb-item">Pengaduan</li> --}}
         <li class="breadcrumb-item active">Data Permintaan Gas</li>
     @endcomponent
-
-    <!-- Form Tambah Gas -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                {{-- @if (session()->has('success'))
-                    <div class="alert alert-success dark alert-dismissible fade show" role="alert">
-                        <strong>Sukses ! </strong> {{ session('success') }}.
-                        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"
-                            data-bs-original-title="" title=""></button>
-                    </div>
-                @endif --}}
+                {{-- @if ($errors->any())
+                <div class="alert alert-danger dark alert-dismissible fade show" role="alert"><strong>Terjadi kesalahan</strong>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  @endif --}}
+
                 <div class="card">
                     <div class="card-header pb-0">
-                        <div class="row">
-                            <div class="col-8">
-                                <h5>Data Permintaan Gas</h5>
-                            </div>
-                            <div class="col-4">
-                                <div class="bookmark">
-                                    @if (count($gas))
-                                        <a class="btn btn-primary btn-lg" href="{{ route('mcs.demand.approv') }}"
-                                            data-bs-original-title="" title=""> <span
-                                                class="fa fa-plus-square"></span>
-                                            Terima</a>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
+                        <h5>Pengajuan Permintaan</h5>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive overflow-hidden">
-                            <table class="display" id="basic-1">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Judul</th>
-                                        <th>Nominasi</th>
-                                        <th>Availability</th>
-                                        <th>Periode</th>
-                                        <th>Pelanggan</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($gas as $item)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->name ?? '-' }}</td>
-                                            <td>{{ $item->request_gas }}</td>
-                                            <td>{{ $item->received_gas ?? 'Proses' }}</td>
-                                            <td>{{ $item->gas?->period ?? '-' }}</td>
-                                            <td>{{ $item->customer?->name ?? '-' }}</td>
-                                            <td>{{ $item->status ?? '-' }}</td>
-                                        </tr>
-                                    @endforeach
-                                    {{-- <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Simple</button> --}}
-                                </tbody>
-                            </table>
-                        </div>
+                        <form class="theme-form" enctype="multipart/form-data" method="POST"
+                            action="{{ route('rscm.demand.approv') }}">
+                            @csrf
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label" for="inp_period">Periode</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" readonly value="{{ $gas->period }}">
+                                    <input class="form-control" type="hidden" name="inp_period"
+                                        value="{{ $gas->id }}">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label" for="inp_availabily">Availability</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" readonly value="{{ $gas->availability }}">
+                                </div>
+                            </div>
+                            <hr>
+                            @if (!count($demand))
+                                <center>
+                                    <h1>Tidak ada pengajuan</h1>
+                                </center>
+                            @else
+                                @foreach ($demand as $item)
+                                    <div class="row">
+                                        <div class="mb-3 row">
+                                            <label class="col-sm-3 col-form-label" for="">Pelanggan</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" readonly
+                                                    value="{{ $item->customer?->name }}">
+                                                <input class="form-control" type="hidden" readonly
+                                                    value="{{ $item->customer_id }}">
+                                                <input class="form-control" type="hidden" readonly
+                                                    value="{{ $item->id }}" name="inp_demand[]">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-sm-3 col-form-label" for="">Nominasi</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" type="text" readonly
+                                                    value="{{ $item->request_gas }}">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-sm-3 col-form-label" for="inp_availabily">Availability</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control @error('inp_availabily') is-invalid @enderror"
+                                                    name="inp_availabily[]" id="inp_availabily" type="text"
+                                                    placeholder="Contoh : 550,10" value="{{ old('inp_availabily') }}"
+                                                    autocomplete="false" autofocus>
+                                                @error('inp_availabily')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                @endforeach
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" type="submit">Ajukan</button>
+                        <a href="{{ URL::previous() }}">
+                            <button class="btn btn-secondary" type="button">Batal</button>
+                        </a>
+                        </form>
+                        @endif
                     </div>
                 </div>
-                <!-- Form Pengaduan End -->
+                <!-- Form Permintaan End -->
             </div>
         </div>
     </div>

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\MCS;
+namespace App\Http\Controllers\RSCM;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class   LoginMCSController extends Controller
+class LoginRSCMController extends Controller
 {
     public function authenticate(Request $request)
     {
@@ -14,9 +14,9 @@ class   LoginMCSController extends Controller
             'username' => ['required'],
             'password' => ['required'],
         ]);
-        if (Auth::guard('mcs')->attempt($credentials)) {
+        if (Auth::guard('rscm')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('mcs.demand.index');
+            return redirect()->route('rscm.demand.request');
         } else {
             return back()->with([
                 'gagal' => 'Terjadi kesalahan pada login, email atau password salah',
@@ -25,7 +25,7 @@ class   LoginMCSController extends Controller
     }
     public function logout(Request $request)
     {
-        Auth::guard('mcs')->logout();
+        Auth::guard('rscm')->logout();
 
         $request->session()->invalidate();
 

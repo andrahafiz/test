@@ -12,7 +12,7 @@
 @section('container')
     @component('components.rscm.breadcrumb')
         @slot('breadcrumb_title')
-            <h3>Data Permintaan Gas</h3>
+            <h3>Data Permintaan Gas ({{ now()->format('Y-m-d') }})</h3>
         @endslot
         {{-- <li class="breadcrumb-item">Pengaduan</li> --}}
         <li class="breadcrumb-item active">Data Permintaan Gas</li>
@@ -22,18 +22,28 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                @if (session()->has('success'))
+                {{-- @if (session()->has('success'))
                     <div class="alert alert-success dark alert-dismissible fade show" role="alert">
                         <strong>Sukses ! </strong> {{ session('success') }}.
                         <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"
                             data-bs-original-title="" title=""></button>
                     </div>
-                @endif
+                @endif --}}
                 <div class="card">
                     <div class="card-header pb-0">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-8">
                                 <h5>Data Permintaan Gas</h5>
+                            </div>
+                            <div class="col-4">
+                                <div class="bookmark">
+                                    @if (count($gas))
+                                        <a class="btn btn-primary btn-lg" href="{{ route('rscm.demand.approv') }}"
+                                            data-bs-original-title="" title=""> <span
+                                                class="fa fa-plus-square"></span>
+                                            Terima</a>
+                                    @endif
+                                </div>
                             </div>
                         </div>
 
@@ -60,7 +70,7 @@
                                             <td>{{ $item->request_gas }}</td>
                                             <td>{{ $item->received_gas ?? 'Proses' }}</td>
                                             <td>{{ $item->gas?->period ?? '-' }}</td>
-                                            <td>{{ $item->rscm?->name ?? '-' }}</td>
+                                            <td>{{ $item->customer?->name ?? '-' }}</td>
                                             <td>{{ $item->status ?? '-' }}</td>
                                         </tr>
                                     @endforeach

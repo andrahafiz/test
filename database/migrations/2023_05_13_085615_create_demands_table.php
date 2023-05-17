@@ -20,7 +20,7 @@ class CreateDemandsTable extends Migration
             $table->foreignId('customer_id');
             $table->float('request_gas');
             $table->float('received_gas')->nullable();
-            $table->enum('status', ['Request', 'Terima (MCS)', 'Progress', 'Done']);
+            $table->enum('status', ['Request', 'Terima (RSCM)', 'Progress', 'Done']);
             $table->timestamps();
             $table->softDeletes();
         });

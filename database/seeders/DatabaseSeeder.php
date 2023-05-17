@@ -26,6 +26,11 @@ class DatabaseSeeder extends Seeder
             'username' => 'mcs',
             'password' => Hash::make('password')
         ]);
+        \App\Models\RSCM::create([
+            'name' => 'RSCM',
+            'username' => 'rscm',
+            'password' => Hash::make('password')
+        ]);
         // $this->call([
         //     RtSeeder::class,
         //     RwSeeder::class,

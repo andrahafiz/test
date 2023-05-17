@@ -16,7 +16,7 @@ class LoginCustomerController extends Controller
         ]);
         if (Auth::guard('web')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('customer.home');
+            return redirect()->route('customer.demand.index');
         } else {
             return back()->with([
                 'gagal' => 'Terjadi kesalahan pada login, email atau password salah',

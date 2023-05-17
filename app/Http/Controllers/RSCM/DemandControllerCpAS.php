@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\MCS;
+namespace App\Http\Controllers\RSCM;
 
 use App\Models\Gas;
 use App\Models\Demand;
@@ -8,15 +8,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RSCM\DemandStoreRequest;
 
-class DemandController extends Controller
+class DemandControllerCpAS extends Controller
 {
     //
     public function indexRequest()
     {
         $gas = Gas::whereDate('period', Carbon::today())->first();
         $demand = Demand::whereDate('created_at', Carbon::today())->where('status', 'Terima (MCS)')->get();
-        return view('MCS.Gas.index-request', compact('demand', 'gas'));
+        return view('RSCM.Gas.index-request', compact('demand', 'gas'));
     }
 
 
@@ -41,12 +42,12 @@ class DemandController extends Controller
     public function index()
     {
         $gas = Demand::paginate(5);
-        return view('MCS.Gas.index-gas', compact('gas'));
+        return view('RSCM.Gas.index-gas', compact('gas'));
     }
 
     public function create()
     {
-        return view('MCS.Gas.create-gas');
+        return view('RSCM.Gas.create-gas');
     }
 
     public function store(Request $request)

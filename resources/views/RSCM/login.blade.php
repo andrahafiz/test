@@ -12,7 +12,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
-    <title>Digirute</title>
+    <title>Login o</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -65,8 +65,8 @@
                     <div class="login-card">
                         <form class="theme-form login-form" method="POST" action="{{ route('rscm.check-login') }}">
                             @csrf
-                            <h4>Login MCS</h4>
-                            <h6>Selamat Datang MCS.</h6>
+                            <h4>Login RSCM</h4>
+                            <h6>Selamat Datang RSCM.</h6>
                             @if (session()->has('gagal'))
                                 <div class="alert alert-danger dark alert-dismissible fade show" role="alert">
                                     <strong>Gagal login ! </strong> {{ session('gagal') }}.

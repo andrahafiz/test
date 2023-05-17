@@ -68,7 +68,8 @@ return [
     */
 
     // 'timezone' => 'UTC', default bawaan
-    'timezone' => env('APP_TIMEZONE','UTC'),
+    'timezone' => env('APP_TIMEZONE', 'UTC'),
+
 
     /*
     |--------------------------------------------------------------------------

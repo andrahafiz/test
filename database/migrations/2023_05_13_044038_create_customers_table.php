@@ -18,6 +18,7 @@ class CreateCustomersTable extends Migration
             $table->text('name')->nullable();
             $table->text('username');
             $table->text('password');
+            $table->string('email');
             $table->timestamps();
             $table->softDeletes();
         });

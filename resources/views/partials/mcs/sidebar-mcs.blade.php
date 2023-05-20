@@ -28,6 +28,11 @@
                         </div>
                     </li>
                     <li>
+                        <a class="nav-link menu-title link-nav {{ routeActive('mcs.sending.gas') }}"
+                            href="{{ route('mcs.sending.gas') }}">
+                            <i data-feather="users"></i><span>Pengiriman Gas</span></a>
+                    </li>
+                    <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('mcs.demand.request') }}"
                             href="{{ route('mcs.demand.request') }}">
                             <i data-feather="users"></i><span>Approval Permintaan</span></a>

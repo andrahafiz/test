@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\MCS\DemandController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MCS\DemandController;
 
 use App\Http\Controllers\MCS\LoginMCSController;
+use App\Http\Controllers\RSCM\SendingGasController;
 
 Route::middleware(['guest:mcs', 'PreventBackHistory'])->group(function () {
     Route::view('/', 'mcs.login')->name('login');
@@ -24,6 +25,7 @@ Route::middleware(['auth:mcs', 'PreventBackHistory'])->group(function () {
             // Route::post('/request-gas', 'store')->name('demand.store');
             // Route::delete('/request-gas', 'delete')->name('demand.delete');
         });
+    Route::get('sending-gas', SendingGasController::class)->name('sending.gas');
 });
     
     // });

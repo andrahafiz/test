@@ -19,7 +19,14 @@ class DatabaseSeeder extends Seeder
         \App\Models\Customer::create([
             'name' => 'Bojonegara',
             'username' => 'autem',
-            'password' => Hash::make('password')
+            'password' => Hash::make('password'),
+            'email' => 'autem@gmail.com'
+        ]);
+        \App\Models\Customer::create([
+            'name' => 'Medan',
+            'username' => 'medan',
+            'password' => Hash::make('password'),
+            'email' => 'medan@gmail.com'
         ]);
         \App\Models\Mcs::create([
             'name' => 'MCS',
@@ -30,6 +37,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'RSCM',
             'username' => 'rscm',
             'password' => Hash::make('password')
+        ]);
+
+        \App\Models\Gas::create([
+            'availability' => 100,
+            'period' => now()->format('Y-m-d'),
+            'status' => 0
         ]);
         // $this->call([
         //     RtSeeder::class,

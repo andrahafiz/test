@@ -26,10 +26,14 @@ class DemandController extends Controller
 
     public function approv(ApproveGasMcsRequest $request)
     {
-        $a = collect($request->inp_availabily);
-        dd($a);
-        dd($a->sum('recei'));
-        throw ValidationException::withMessages(['user' => 'NOT_IN_GROUP_MEMBER']);
+        $value_availavilty = $request->inp_availabily;
+        $sum = 0;
+        foreach ($value_availavilty as $value) {
+            $sum += $value;
+        };
+
+        if ($request->gas_availability < $sum)
+            throw ValidationException::withMessages(['user' => 'Jumlah yang dibagikan lebih besar dari nilai Availability']);
         try {
             DB::transaction(function () use ($request) {
                 foreach ($request->inp_demand as $key => $item) {
@@ -40,7 +44,7 @@ class DemandController extends Controller
                     $deman->save();
                 }
             });
-            return redirect()->route('msc.demand.request')->with('success', "Data diterima");       # code...
+            return redirect()->route('mcs.demand.index')->with('success', "Data berhasil telah diterima");       # code...       # code...
         } catch (\Throwable $th) {
             throw $th;
         };

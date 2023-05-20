@@ -1,4 +1,4 @@
-@extends('layouts.main-rscm')
+@extends('layouts.main-mcs')
 
 @section('title')
     Pengaduan Gas
@@ -10,12 +10,12 @@
 @endpush
 
 @section('container')
-    @component('components.rscm.breadcrumb')
+    @component('components.mcs.breadcrumb')
         @slot('breadcrumb_title')
-            <h3>Data Permintaan Gas</h3>
+            <h3>Pengiriman Gas</h3>
         @endslot
         {{-- <li class="breadcrumb-item">Pengaduan</li> --}}
-        <li class="breadcrumb-item active">Data Permintaan Gas</li>
+        <li class="breadcrumb-item active">Pengiriman Gas</li>
     @endcomponent
 
     <!-- Form Tambah Gas -->
@@ -34,6 +34,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <h5>Data Permintaan Gas</h5>
+                                <p class="m-t-10 f-w-600"> Tanggal : {{ tanggal_indo(now()->today()) }}</p>
                             </div>
                         </div>
 
@@ -45,9 +46,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Judul</th>
-                                        <th>Nominasi</th>
-                                        <th>Availability</th>
-                                        <th>Periode</th>
+                                        <th>Progress</th>
                                         <th>Pelanggan</th>
                                         <th>Status</th>
                                     </tr>
@@ -57,10 +56,18 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->name ?? '-' }}</td>
-                                            <td>{{ $item->request_gas }}</td>
-                                            <td>{{ $item->received_gas ?? 'Proses' }}</td>
-                                            <td>{{ $item->gas?->period ?? '-' }}</td>
-                                            <td>{{ $item->rscm?->name ?? '-' }}</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar-animated bg-primary progress-bar-striped"
+                                                        role="progressbar"
+                                                        style="width: {{ ($item->gas / $item->received_gas) * 100 ?? 0 }}%"
+                                                        aria-valuenow="{{ $item->gas ?? 0 }}" aria-valuemin="0"
+                                                        aria-valuemax="{{ $item->received_gas ?? 0 }}"></div>
+                                                </div>
+                                                <p class="text-center f-w-700 m-t-5">
+                                                    {{ $item->gas ?? 0 }}/{{ $item->received_gas }}</p>
+                                            </td>
+                                            <td>{{ $item->customer?->name ?? '-' }}</td>
                                             <td>
                                                 <x-buttonstatus type="{{ $item->status }}">
                                                 </x-buttonstatus>

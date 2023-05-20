@@ -71,7 +71,10 @@
                                             <td>{{ $item->received_gas ?? 'Proses' }}</td>
                                             <td>{{ $item->gas?->period ?? '-' }}</td>
                                             <td>{{ $item->customer?->name ?? '-' }}</td>
-                                            <td>{{ $item->status ?? '-' }}</td>
+                                            <td>
+                                                <x-buttonstatus type="{{ $item->status }}">
+                                                </x-buttonstatus>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     {{-- <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Simple</button> --}}

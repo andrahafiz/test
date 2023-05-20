@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RSCM\DemandController;
 use App\Http\Controllers\RSCM\LoginRSCMController;
+use App\Http\Controllers\RSCM\SendingGasController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,6 +26,10 @@ Route::middleware(['auth:rscm', 'PreventBackHistory'])->group(function () {
             // Route::post('/request-gas', 'store')->name('demand.store');
             // Route::delete('/request-gas', 'delete')->name('demand.delete');
         });
+
+    
 });
+
+
     
     // });

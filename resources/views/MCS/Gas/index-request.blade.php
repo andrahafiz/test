@@ -1,4 +1,4 @@
-@extends('layouts.main-rscm')
+@extends('layouts.main-mcs')
 
 @section('title')
     Pengaduan Gas
@@ -10,7 +10,7 @@
 @endpush
 
 @section('container')
-    @component('components.rscm.breadcrumb')
+    @component('components.mcs.breadcrumb')
         @slot('breadcrumb_title')
             <h3>Data Permintaan Gas ({{ now()->format('Y-m-d') }})</h3>
         @endslot
@@ -20,14 +20,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                {{-- @if ($errors->any())
-                <div class="alert alert-danger dark alert-dismissible fade show" role="alert"><strong>Terjadi kesalahan</strong>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                  @endif --}}
+                @if ($errors->any())
+                    <div class="alert alert-danger dark alert-dismissible fade show" role="alert"><strong>Terjadi
+                            kesalahan</strong>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
 
                 <div class="card">
                     <div class="card-header pb-0">
@@ -35,7 +36,7 @@
                     </div>
                     <div class="card-body">
                         <form class="theme-form" enctype="multipart/form-data" method="POST"
-                            action="{{ route('rscm.demand.approv') }}">
+                            action="{{ route('mcs.demand.approv') }}">
                             @csrf
                             <div class="mb-3 row">
                                 <label class="col-sm-3 col-form-label" for="inp_period">Periode</label>
@@ -48,7 +49,7 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-3 col-form-label" for="inp_availabily">Availability</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" readonly value="{{ $gas->availability }}">
+                                    <input class="form-control" type="text" readonly name="gas_availability" value="{{ $gas->availability }}">
                                 </div>
                             </div>
                             <hr>
@@ -57,10 +58,12 @@
                                     <h1>Tidak ada pengajuan</h1>
                                 </center>
                             @else
+                                @php $i= 0 @endphp
                                 @foreach ($demand as $item)
                                     <div class="row">
                                         <div class="mb-3 row">
-                                            <label class="col-sm-3 col-form-label" for="">Pelanggan</label>
+                                            <label class="col-sm-3 col-form-label" for="">Pelanggan
+                                            </label>
                                             <div class="col-sm-9">
                                                 <input class="form-control" type="text" readonly
                                                     value="{{ $item->customer?->name }}">
@@ -80,11 +83,12 @@
                                         <div class="mb-3 row">
                                             <label class="col-sm-3 col-form-label" for="inp_availabily">Availability</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control @error('inp_availabily') is-invalid @enderror"
+                                                <input
+                                                    class="form-control @error('inp_availabily.' . $i) is-invalid @enderror"
                                                     name="inp_availabily[]" id="inp_availabily" type="text"
-                                                    placeholder="Contoh : 550,10" value="{{ old('inp_availabily') }}"
+                                                    placeholder="Contoh : 550,10" value="{{ old('inp_availabily.' . $i) }}"
                                                     autocomplete="false" autofocus>
-                                                @error('inp_availabily')
+                                                @error('inp_availabily.' . $i++)
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>

@@ -1,4 +1,4 @@
-@extends('layouts.main-rscm')
+@extends('layouts.main-mcs')
 
 @section('title')
     Pengaduan Gas
@@ -10,7 +10,7 @@
 @endpush
 
 @section('container')
-    @component('components.rscm.breadcrumb')
+    @component('components.mcs.breadcrumb')
         @slot('breadcrumb_title')
             <h3>Data Permintaan Gas</h3>
         @endslot
@@ -60,7 +60,7 @@
                                             <td>{{ $item->request_gas }}</td>
                                             <td>{{ $item->received_gas ?? 'Proses' }}</td>
                                             <td>{{ $item->gas?->period ?? '-' }}</td>
-                                            <td>{{ $item->rscm?->name ?? '-' }}</td>
+                                            <td>{{ $item->mcs?->name ?? '-' }}</td>
                                             <td>{{ $item->status ?? '-' }}</td>
                                         </tr>
                                     @endforeach

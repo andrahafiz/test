@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\MCS\DemandController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\MCS\DemandController;
 use App\Http\Controllers\MCS\LoginMCSController;
 
 Route::middleware(['guest:mcs', 'PreventBackHistory'])->group(function () {
@@ -20,7 +20,7 @@ Route::middleware(['auth:mcs', 'PreventBackHistory'])->group(function () {
         ->group(function () {
             Route::get('/history-gas', 'index')->name('demand.index');
             Route::get('/request-gas', 'indexRequest')->name('demand.request');
-            Route::get('/request-gas/approv', 'approv')->name('demand.approv');
+            Route::post('/request-gas/approv', 'approv')->name('demand.approv');
             // Route::post('/request-gas', 'store')->name('demand.store');
             // Route::delete('/request-gas', 'delete')->name('demand.delete');
         });

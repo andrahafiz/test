@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ApproveGasMcsRequest;
+use Illuminate\Validation\ValidationException;
+
+use function PHPSTORM_META\map;
 
 class DemandController extends Controller
 {
@@ -15,13 +19,17 @@ class DemandController extends Controller
     public function indexRequest()
     {
         $gas = Gas::whereDate('period', Carbon::today())->first();
-        $demand = Demand::whereDate('created_at', Carbon::today())->where('status', 'Terima (MCS)')->get();
+        $demand = Demand::whereDate('created_at', Carbon::today())->where('status', 'Terima (RSCM)')->get();
         return view('MCS.Gas.index-request', compact('demand', 'gas'));
     }
 
 
-    public function approv(Request $request)
+    public function approv(ApproveGasMcsRequest $request)
     {
+        $a = collect($request->inp_availabily);
+        dd($a);
+        dd($a->sum('recei'));
+        throw ValidationException::withMessages(['user' => 'NOT_IN_GROUP_MEMBER']);
         try {
             DB::transaction(function () use ($request) {
                 foreach ($request->inp_demand as $key => $item) {
@@ -32,7 +40,7 @@ class DemandController extends Controller
                     $deman->save();
                 }
             });
-            return redirect()->route('rscm.demand.request')->with('success', "Data diterima");       # code...
+            return redirect()->route('msc.demand.request')->with('success', "Data diterima");       # code...
         } catch (\Throwable $th) {
             throw $th;
         };

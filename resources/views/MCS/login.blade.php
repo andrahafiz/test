@@ -63,7 +63,7 @@
                 <div class="col-xl-7 p-0">
 
                     <div class="login-card">
-                        <form class="theme-form login-form" method="POST" action="{{ route('rscm.check-login') }}">
+                        <form class="theme-form login-form" method="POST" action="{{ route('mcs.check-login') }}">
                             @csrf
                             <h4>Login MCS</h4>
                             <h6>Selamat Datang MCS.</h6>

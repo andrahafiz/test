@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MCS\DemandController;
 
 use App\Http\Controllers\MCS\LoginMCSController;
-use App\Http\Controllers\RSCM\SendingGasController;
+use App\Http\Controllers\MCS\SendingGasController;
 
 Route::middleware(['guest:mcs', 'PreventBackHistory'])->group(function () {
     Route::view('/', 'mcs.login')->name('login');

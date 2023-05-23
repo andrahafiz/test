@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\RSCM;
+namespace App\Http\Controllers\MCS;
 
 use Carbon\Carbon;
 use App\Models\Demand;
@@ -17,7 +17,10 @@ class SendingGasController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $gas = Demand::whereDate('created_at', Carbon::today())->where('status', 'Progress')->orWhere('status', 'Done')->whereNotNull('gas_id')->get();
-        return view('RSCM.Gas.sending-gas', compact('gas'));
+        $gas = Demand::whereDate('created_at', Carbon::today())->where(function ($query) {
+            $query->where('status', 'Progress')
+                ->orWhere('status', 'Done');
+        })->whereNotNull('gas_id')->get();
+        return view('MCS.Gas.sending-gas', compact('gas'));
     }
 }

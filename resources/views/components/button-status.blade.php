@@ -17,6 +17,11 @@
             <button class="btn btn-danger" type="button">{{ $type }}</button>
         @break
 
+        @case('Tolak (Habis)')
+            <button class="btn btn-danger" type="button">{{ $type }}</button>
+            <small>Telah penuh</small>
+        @break
+
         @default
             <button class="btn btn-light disabled" type="button">{{ $type ?? '-' }}</button>
     @endswitch

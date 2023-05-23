@@ -69,7 +69,7 @@
                                             <td>{{ $item->name ?? '-' }}</td>
                                             <td>{{ $item->request_gas }}</td>
                                             <td>{{ $item->received_gas ?? 'Proses' }}</td>
-                                            <td>{{ $item->gas?->period ?? '-' }}</td>
+                                            <td>{{ $item->gases?->period ?? '-' }}</td>
                                             <td>{{ $item->customer?->name ?? '-' }}</td>
                                             <td>
                                                 <x-buttonstatus type="{{ $item->status }}">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\RSCM;
 
+use App\Models\Gas;
 use App\Models\Demand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -20,15 +21,28 @@ class DemandController extends Controller
 
     public function approv()
     {
+        $gas = Gas::whereDate('period', Carbon::today())->first();
+        $current = Demand::where('gas_id', $gas->id)->sum('received_gas');
+        $current = $gas->availability - $current;
+
         try {
-            DB::transaction(function () {
+            DB::transaction(function () use ($current) {
                 $gas = Demand::whereDate('created_at', Carbon::today())->where('status', 'Request')->get();
                 foreach ($gas as $item) {
-                    $item->update([
-                        'status' => 'Terima (RSCM)'
-                    ]);
+                    if ($current <= 0.0) {
+                        $item->update([
+                            'status' => 'Tolak (Habis)'
+                        ]);
+                    } else {
+                        $item->update([
+                            'status' => 'Terima (RSCM)'
+                        ]);
+                    }
                 }
             });
+            if ($current <= 0.0) {
+                return redirect()->route('rscm.demand.request')->with('success', "Data gagal diajukan, Gas telah habis");       # code...
+            }
             return redirect()->route('rscm.demand.request')->with('success', "Data berhasil diajukan ke MCS");       # code...
         } catch (\Throwable $th) {
             throw $th;

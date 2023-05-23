@@ -47,6 +47,7 @@
                                         <th>Judul</th>
                                         <th>Nominasi</th>
                                         <th>Availability</th>
+                                        <th>Gas</th>
                                         <th>Periode</th>
                                         <th>Pelanggan</th>
                                         <th>Status</th>
@@ -59,7 +60,8 @@
                                             <td>{{ $item->name ?? '-' }}</td>
                                             <td>{{ $item->request_gas }}</td>
                                             <td>{{ $item->received_gas ?? 'Proses' }}</td>
-                                            <td>{{ $item->gas?->period ?? '-' }}</td>
+                                            <td>{{ $item->gas ?? 'Kosong' }}</td>
+                                            <td>{{ $item->gases?->period ?? '-' }}</td>
                                             <td>{{ $item->customer?->name ?? '-' }}</td>
                                             <td>
                                                 <x-buttonstatus type="{{ $item->status }}">

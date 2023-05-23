@@ -20,7 +20,9 @@ class DemandController extends Controller
     {
         $gas = Gas::whereDate('period', Carbon::today())->first();
         $demand = Demand::whereDate('created_at', Carbon::today())->where('status', 'Terima (RSCM)')->get();
-        return view('MCS.Gas.index-request', compact('demand', 'gas'));
+        $current = Demand::where('gas_id', $gas->id)->sum('received_gas');
+        $current = $gas->availability - $current;
+        return view('MCS.Gas.index-request', compact('demand', 'gas', 'current'));
     }
 
 
@@ -32,7 +34,7 @@ class DemandController extends Controller
             $sum += $value;
         };
 
-        if ($request->gas_availability < $sum)
+        if ($request->gas_current < $sum)
             throw ValidationException::withMessages(['user' => 'Jumlah yang dibagikan lebih besar dari nilai Availability']);
         try {
             DB::transaction(function () use ($request) {

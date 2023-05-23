@@ -59,6 +59,7 @@ class GetDataGas extends Command
             ->whereNotNull('received_gas')
             ->whereNotNull('gas_id')->get();
 
+
         foreach ($gases as $gas) {
             if ($gas->gas <= $gas->received_gas) {
                 $subtraction = (int) $gas->received_gas ?? 0 - $gas->gas ?? 0;

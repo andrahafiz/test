@@ -12,7 +12,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
-    <title>Digirute | {{ $title }}</title>
+    <title>Perusahaan Gas Negara | {{ $title }}</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -60,7 +60,8 @@
                                 © Politeknik Caltex Riau.</p>
                         </div>
                         <div class="col-md-6">
-                            <p class="pull-right mb-0">Digirute <i class="fa fa-heart font-secondary"></i></p>
+                            <p class="pull-right mb-0">Perusahaan Gas Negara <i class="fa fa-heart font-secondary"></i>
+                            </p>
                         </div>
                     </div>
                 </div>

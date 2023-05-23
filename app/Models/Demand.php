@@ -13,7 +13,7 @@ class Demand extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'gas_id', 'customer_id', 'request_gas', 'received_gas', 'status'];
 
-    public function gas()
+    public function gases()
     {
         return $this->belongsTo(Gas::class, 'gas_id', 'id');
     }

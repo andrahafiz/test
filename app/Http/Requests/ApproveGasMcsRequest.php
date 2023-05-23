@@ -25,7 +25,8 @@ class ApproveGasMcsRequest extends FormRequest
     {
         return [
             'gas_availability' => ['required'],
-            'inp_availabily.*' => ['required', 'numeric', 'lte:gas_availability']
+            'gas_current' => ['required'],
+            'inp_availabily.*' => ['required', 'numeric', 'lte:gas_current']
         ];
     }
 }

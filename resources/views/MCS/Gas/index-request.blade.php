@@ -49,7 +49,15 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-3 col-form-label" for="inp_availabily">Availability</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" readonly name="gas_availability" value="{{ $gas->availability }}">
+                                    <input class="form-control" type="text" readonly name="gas_availability"
+                                        value="{{ $gas->availability }}">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label" for="inp_availabily">Current</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" readonly name="gas_current"
+                                        value="{{ $current }}">
                                 </div>
                             </div>
                             <hr>

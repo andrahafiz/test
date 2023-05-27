@@ -30,17 +30,17 @@
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('mcs.sending.gas') }}"
                             href="{{ route('mcs.sending.gas') }}">
-                            <i data-feather="users"></i><span>Pengiriman Gas</span></a>
+                            <i data-feather="send"></i><span>Pengiriman Gas</span></a>
                     </li>
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('mcs.demand.request') }}"
                             href="{{ route('mcs.demand.request') }}">
-                            <i data-feather="users"></i><span>Approval Permintaan</span></a>
+                            <i data-feather="check-square"></i><span>Approval Permintaan</span></a>
                     </li>
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('mcs.demand.index') }}"
                             href="{{ route('mcs.demand.index') }}">
-                            <i data-feather="users"></i><span>Riwayat Permintaan Gas</span></a>
+                            <i data-feather="rotate-ccw"></i><span>Riwayat Permintaan Gas</span></a>
                     </li>
                     {{-- <li class="dropdown">
                         <a class="nav-link menu-title link-nav {{ routeActive('warga.home') }}"

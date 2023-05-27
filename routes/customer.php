@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Customer\AuctionController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Customer\OtherController;
@@ -32,4 +33,6 @@ Route::middleware(['auth', 'PreventBackHistory'])->group(function () {
             Route::post('/request-gas', 'store')->name('demand.store');
             Route::delete('/request-gas', 'delete')->name('demand.delete');
         });
+    Route::get('lelang-gas', [AuctionController::class, 'index'])->name('lelang.gas');
+    Route::post('lelang-gas', [AuctionController::class, 'claim'])->name('claim.gas');
 });

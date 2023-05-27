@@ -19,6 +19,7 @@ class CreateGasesTable extends Migration
             $table->float('availability');
             $table->date('period');
             $table->boolean('status');
+            $table->boolean('lelang')->default(0)->comment('1->lelang on, 0->lelang off');
             $table->timestamps();
             $table->softDeletes();
         });

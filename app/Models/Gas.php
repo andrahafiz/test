@@ -11,5 +11,5 @@ class Gas extends Model
     use HasFactory, SoftDeletes;
     protected $table = 'gases';
     protected $primaryKey = 'id';
-    protected $fillable = ['name', 'availability', 'period', 'status'];
+    protected $fillable = ['name', 'availability', 'period', 'status', 'lelang'];
 }

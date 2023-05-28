@@ -14,8 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create()
-
         \App\Models\Customer::create([
             'name' => 'Bojonegara',
             'username' => 'autem',
@@ -42,24 +40,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\Gas::create([
             'availability' => 100,
             'period' => now()->format('Y-m-d'),
-            'status' => 0
+            'status' => 0,
+            'approval' => 1
         ]);
-        // $this->call([
-        //     RtSeeder::class,
-        //     RwSeeder::class,
-        //     PekerjaanSeeder::class,
-        //     PendidikanSeeder::class,
-        //     DaerahSeeder::class,
-        //     GolonganDarahSeeder::class,
-        //     UtilSeeder::class,
-        //     KategoriKegiatanSeeder::class,
-        //     KategoriFasilitasUmumSeeder::class,
-        //     KegiatanSeeder::class,
-        //     FasilitasSeeder::class,
-        //     PengumumanSeeder::class,
-        //     AgamaSeeder::class,
-        //     WargaSeeder::class,
-        //     StatusHubunganSeeder::class,
-        // ]);
     }
 }

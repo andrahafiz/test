@@ -46,7 +46,7 @@ class DemandController extends Controller
                     $deman->save();
                 }
             });
-            return redirect()->route('mcs.demand.index')->with('success', "Data berhasil telah diterima");       # code...       # code...
+            return redirect()->route('mcs.demand.index')->with('success', "Data berhasil telah diterima"); 
         } catch (\Throwable $th) {
             throw $th;
         };

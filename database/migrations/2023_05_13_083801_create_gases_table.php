@@ -17,9 +17,10 @@ class CreateGasesTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->float('availability');
-            $table->date('period');
-            $table->boolean('status');
+            $table->date('period')->unique();
+            $table->boolean('status')->default(0);
             $table->boolean('lelang')->default(0)->comment('1->lelang on, 0->lelang off');
+            $table->boolean('approval')->default(0)->comment('1->sudah di approve, 0->belum di approve');
             $table->timestamps();
             $table->softDeletes();
         });

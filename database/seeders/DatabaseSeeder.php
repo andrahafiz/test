@@ -36,6 +36,11 @@ class DatabaseSeeder extends Seeder
             'username' => 'rscm',
             'password' => Hash::make('password')
         ]);
+        \App\Models\Medco::create([
+            'name' => 'Medco',
+            'username' => 'medco',
+            'password' => Hash::make('password')
+        ]);
 
         \App\Models\Gas::create([
             'availability' => 100,

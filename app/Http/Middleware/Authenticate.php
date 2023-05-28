@@ -15,14 +15,16 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            //jika name dari route tidak mengandung "rt"
-            if ($request->routeIs('rt.*') ) {
-                return route('rt.login');
-            //jika name dari route tidak mengandung "r"
-            }else if($request->routeIs('rw.*')){
-                return route('rw.login');
-            }else{
-                return route('warga.login');
+            //jika name dari route tidak mengandung "mcs"
+            if ($request->routeIs('mcs.*')) {
+                return route('mcs.login');
+                //jika name dari route tidak mengandung "r"
+            } else if ($request->routeIs('rscm.*')) {
+                return route('rscm.login');
+            } else if ($request->routeIs('medco.*')) {
+                return route('medco.login');
+            } else {
+                return route('customer.login');
             }
             // return route('warga.login');
         }

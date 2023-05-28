@@ -15,7 +15,11 @@ class CreateMedcosTable extends Migration
     {
         Schema::create('medcos', function (Blueprint $table) {
             $table->id();
+            $table->text('name')->nullable();
+            $table->text('username');
+            $table->text('password');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

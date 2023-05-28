@@ -21,9 +21,13 @@ return [
         'driver' => 'eloquent',
         'model' => App\Models\Mcs::class,
     ],
-    'mcs' => [
+    'rscm' => [
         'driver' => 'eloquent',
         'model' => App\Models\RSCM::class,
+    ],
+    'medco' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Medco::class,
     ],
 
     /*
@@ -56,6 +60,10 @@ return [
             'driver' => 'session',
             'provider' => 'rscm',
         ],
+        'medco' => [
+            'driver' => 'session',
+            'provider' => 'medco',
+        ],
     ],
 
     /*
@@ -87,6 +95,10 @@ return [
         'rscm' => [
             'driver' => 'eloquent',
             'model' => App\Models\RSCM::class,
+        ],
+        'medco' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Medco::class,
         ],
 
 
@@ -125,6 +137,10 @@ return [
         'rscm' => [
             'driver' => 'eloquent',
             'model' => App\Models\RSCM::class,
+        ],
+        'medco' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Medcos::class,
         ],
     ],
 

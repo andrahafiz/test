@@ -26,7 +26,9 @@ class RedirectIfAuthenticated
                 if ($guard === 'mcs') {
                     return redirect()->route('mcs.demand.index');
                 } else if ($guard === 'rscm') {
-                    return redirect()->route('rscm.demand.inde');
+                    return redirect()->route('rscm.demand.index');
+                } else if ($guard === 'medco') {
+                    return redirect()->route('medco.approv.index');
                 }
                 return redirect()->route('customer.demand.index');
             }

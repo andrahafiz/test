@@ -18,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     // public const HOME = '/home';
-    public const HOME = '/Warga';
+    public const HOME = '/';
 
     /**
      * The controller namespace for the application.
@@ -48,12 +48,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
-            // Route::prefix('Warga')
-            //     ->name('warga.')
-            //     ->middleware('web')
-            //     ->namespace($this->namespace)
-            //     ->group(base_path('routes/warga.php'));
-
             Route::prefix('pelanggan')
                 ->name('customer.')
                 ->middleware('web')
@@ -71,20 +65,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/rscm.php'));
-
-            // Route::prefix('RT')
-            //     ->name('rt.')
-            //     ->middleware('web')
-            //     ->namespace($this->namespace)
-            //     ->group(base_path('routes/rt.php'));
         });
-
-
-        //mengganti nama URL pada resource controller
-        Route::resourceVerbs([
-            'create' => 'tambah',
-            // 'edit' => 'editar',
-        ]);
     }
 
     /**

@@ -23,13 +23,12 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if ($guard === 'rt') {
-                    return redirect()->route('rt.home');
-                }else if($guard === 'rw'){
-                    return redirect()->route('rw.dashboard.home');
+                if ($guard === 'mcs') {
+                    return redirect()->route('mcs.demand.index');
+                } else if ($guard === 'rscm') {
+                    return redirect()->route('rscm.demand.inde');
                 }
-                return redirect()->route('warga.home');
-                // return redirect(RouteServiceProvider::HOME);
+                return redirect()->route('customer.demand.index');
             }
         }
 

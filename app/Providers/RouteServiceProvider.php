@@ -71,6 +71,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/medco.php'));
+
+            Route::prefix('supervisor')
+                ->name('supervisor.')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/supervisor.php'));
         });
     }
 

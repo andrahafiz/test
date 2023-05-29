@@ -14,7 +14,6 @@
         @slot('breadcrumb_title')
             <h3>Data Permintaan Gas</h3>
         @endslot
-        {{-- <li class="breadcrumb-item">Pengaduan</li> --}}
         <li class="breadcrumb-item active">Data Permintaan Gas</li>
     @endcomponent
 
@@ -67,12 +66,11 @@
                                             <td>{{ $item->received_gas ?? 'Proses' }}</td>
                                             <td>{{ $item->gases?->period ?? '-' }}</td>
                                             <td>
-                                                <x-buttonstatus type="{{ $item->status }}">
-                                                </x-buttonstatus>
+                                                <x-ButtonStatus type="{{ $item->status }}">
+                                                </x-ButtonStatus>
                                             </td>
                                         </tr>
                                     @endforeach
-                                    {{-- <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Simple</button> --}}
                                 </tbody>
                             </table>
                         </div>

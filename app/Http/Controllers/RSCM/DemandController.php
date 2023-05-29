@@ -51,7 +51,7 @@ class DemandController extends Controller
 
     public function index()
     {
-        $gas = Demand::paginate(5);
+        $gas = Demand::get();
         return view('RSCM.Gas.index-gas', compact('gas'));
     }
 

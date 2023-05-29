@@ -23,11 +23,15 @@ return [
     ],
     'rscm' => [
         'driver' => 'eloquent',
-        'model' => App\Models\RSCM::class,
+        'model' => App\Models\Rscm::class,
     ],
     'medco' => [
         'driver' => 'eloquent',
         'model' => App\Models\Medco::class,
+    ],
+    'supervisor' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Supervisor::class,
     ],
 
     /*
@@ -64,6 +68,10 @@ return [
             'driver' => 'session',
             'provider' => 'medco',
         ],
+        'supervisor' => [
+            'driver' => 'session',
+            'provider' => 'supervisor',
+        ],
     ],
 
     /*
@@ -94,11 +102,15 @@ return [
         ],
         'rscm' => [
             'driver' => 'eloquent',
-            'model' => App\Models\RSCM::class,
+            'model' => App\Models\Rscm::class,
         ],
         'medco' => [
             'driver' => 'eloquent',
             'model' => App\Models\Medco::class,
+        ],
+        'supervisor' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Supervisor::class,
         ],
 
 
@@ -136,11 +148,15 @@ return [
         ],
         'rscm' => [
             'driver' => 'eloquent',
-            'model' => App\Models\RSCM::class,
+            'model' => App\Models\Rscm::class,
         ],
         'medco' => [
             'driver' => 'eloquent',
             'model' => App\Models\Medcos::class,
+        ],
+        'supervisor' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Supervisor::class,
         ],
     ],
 

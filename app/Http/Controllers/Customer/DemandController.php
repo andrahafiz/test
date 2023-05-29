@@ -12,9 +12,7 @@ class DemandController extends Controller
     //
     public function index()
     {
-        # code...
-        // return 'test';
-        $gas = Demand::where('customer_id', auth()->user()->id)->paginate(5);
+        $gas = Demand::where('customer_id', auth()->user()->id)->get();
         return view('Customer.Gas.index-gas', compact('gas'));
     }
 

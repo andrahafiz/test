@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'mcs',
             'password' => Hash::make('password')
         ]);
-        \App\Models\RSCM::create([
+        \App\Models\Rscm::create([
             'name' => 'RSCM',
             'username' => 'rscm',
             'password' => Hash::make('password')
@@ -41,12 +41,17 @@ class DatabaseSeeder extends Seeder
             'username' => 'medco',
             'password' => Hash::make('password')
         ]);
-
-        \App\Models\Gas::create([
-            'availability' => 100,
-            'period' => now()->format('Y-m-d'),
-            'status' => 0,
-            'approval' => 1
+        \App\Models\Supervisor::create([
+            'name' => 'Supervisor',
+            'username' => 'supervisor',
+            'password' => Hash::make('password')
         ]);
+
+        // \App\Models\Gas::create([
+        //     'availability' => 100,
+        //     'period' => now()->format('Y-m-d'),
+        //     'status' => 0,
+        //     'approval' => 1
+        // ]);
     }
 }

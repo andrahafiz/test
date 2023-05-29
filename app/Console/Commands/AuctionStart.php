@@ -50,11 +50,11 @@ class AuctionStart extends Command
             'link' => route('customer.lelang.gas')
         ];
 
-        if ($gas->availability > $total_gas) {
-            foreach ($demand as $item) {
-                Mail::to($item->customer->email)->send(new \App\Mail\AuctionMail($item->customer->name, $details));
-            }
-        }
+        // if ($gas->availability > $total_gas) {
+        //     foreach ($demand as $item) {
+        //         Mail::to($item->customer->email)->send(new \App\Mail\AuctionMail($item->customer->name, $details));
+        //     }
+        // }
         $gas->lelang = 1;
         $gas->save();
     }

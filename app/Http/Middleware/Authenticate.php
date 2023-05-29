@@ -23,6 +23,8 @@ class Authenticate extends Middleware
                 return route('rscm.login');
             } else if ($request->routeIs('medco.*')) {
                 return route('medco.login');
+            } else if ($request->routeIs('supervisor.*')) {
+                return route('supervisor.login');
             } else {
                 return route('customer.login');
             }

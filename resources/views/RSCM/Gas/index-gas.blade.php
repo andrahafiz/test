@@ -62,8 +62,8 @@
                                             <td>{{ $item->gases?->period ?? '-' }}</td>
                                             <td>{{ $item->customer?->name ?? '-' }}</td>
                                             <td>
-                                                <x-buttonstatus type="{{ $item->status }}">
-                                                </x-buttonstatus>
+                                                <x-ButtonStatus type="{{ $item->status }}">
+                                                </x-ButtonStatus>
                                             </td>
                                         </tr>
                                     @endforeach

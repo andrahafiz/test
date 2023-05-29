@@ -26,7 +26,7 @@ class GasController extends Controller
 
     public function index()
     {
-        $gas = Gas::paginate(5);
+        $gas = Gas::get();
         return view('Medco.Gas.index-gas', compact('gas'));
     }
 }

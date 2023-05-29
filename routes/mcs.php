@@ -8,7 +8,7 @@ use App\Http\Controllers\MCS\RequestGasController;
 use App\Http\Controllers\MCS\SendingGasController;
 
 Route::middleware(['guest:mcs', 'PreventBackHistory'])->group(function () {
-    Route::view('/', 'mcs.login')->name('login');
+    Route::view('/', 'MCS.login')->name('login');
     Route::post('/', [LoginMCSController::class, 'authenticate'])->name('check-login');
 });
 

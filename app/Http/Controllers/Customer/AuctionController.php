@@ -19,6 +19,9 @@ class AuctionController extends Controller
     public function index(Request $request)
     {
         $gas = Gas::whereDate('period', Carbon::today())->where('lelang', 1)->first();
+        if (is_null($gas))
+            return view('Customer.lelang-gas', compact('gas'));
+
         $demand = Demand::where('gas_id', $gas->id)->get();
         $total_gas = $demand->sum('gas');
         $gas_sisa = $gas->availability - $total_gas;
@@ -32,6 +35,12 @@ class AuctionController extends Controller
         $demand->gas = (float) $demand->gas + (float) $request->inp_sisagas;
         $demand->status = 'Done';
         $demand->save();
+
+        $gas->lelang = 0;
+        $gas->save();
+
+        $anotherCustomer = Demand::where('gas_id', $gas->id)->where('customer_id', '<>', auth()->user()->id)->update(['status' => 'Done']);
+
         return redirect()->route('customer.lelang.gas')->with('success', 'Selamat, anda berhasil memenangkan lelang ini');
     }
 }

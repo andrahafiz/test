@@ -47,54 +47,6 @@
                             href="{{ route('mcs.demand.index') }}">
                             <i data-feather="rotate-ccw"></i><span>Riwayat Permintaan Gas</span></a>
                     </li>
-                    {{-- <li class="dropdown">
-                        <a class="nav-link menu-title link-nav {{ routeActive('warga.home') }}"
-                            href="{{ route('warga.home') }}"><i data-feather="home"></i><span>Dashboard</span></a>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title  {{ prefixActive('warga.surat.*') }}"><i
-                                data-feather="inbox"></i><span>Surat</span></a>
-                        <ul class="nav-submenu menu-content" style="display:{{ prefixBlock('warga.surat.*') }};">
-                            <li><a href="{{ route('warga.surat.index') }}"
-                                    class="{{ prefixActive('warga.surat.index') }}">Daftar Pengajuan Surat</a></li>
-                            <li><a href="{{ route('warga.surat.form.surat_keterangan') }}"
-                                    class="{{ prefixActive('warga.surat.form.surat_keterangan') }}">Surat
-                                    Keterangan</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title {{ prefixActive('warga.pengaduan.*') }}"
-                            href="javascript:void(0)"><i data-feather="archive"></i><span>Pengaduan</span></a>
-                        <ul class="nav-submenu menu-content" style="display: {{ prefixBlock('warga.pengaduan.*') }};">
-                            <li><a href="{{ route('warga.pengaduan.index') }}"
-                                    class="{{ routeActive('warga.pengaduan.index') }}">Pengaduan Gas</a></li>
-                            <li><a href="{{ route('warga.pengaduan.pribadi') }}"
-                                    class="{{ routeActive('warga.pengaduan.pribadi') }}">Pengaduan Pribadi</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav {{ routeActive('warga.kegiatan') }}"
-                            href="{{ route('warga.kegiatan_warga.index') }}"><i
-                                data-feather="calendar"></i><span>Kegiatan</span></a>
-                        <a class="nav-link menu-title link-nav {{ routeActive('warga.pengumuman') }}"
-                            href="{{ route('warga.pengumuman_warga.index') }}"><i
-                                data-feather="airplay"></i><span>Pengumuman</span></a>
-                    </li>
-                    <li>
-                        <a class="nav-link menu-title link-nav {{ routeActive('warga.rw-rt') }}"
-                            href="{{ route('warga.rw-rt') }}"><i data-feather="users"></i><span>Profile RT
-                                RW</span></a>
-                    </li>
-                    <li>
-                        <a class="nav-link menu-title  link-nav {{ prefixActive('warga.fasilitaswarga.*') }}"
-                            href="{{ route('warga.fasilitaswarga.index') }}"><i
-                                data-feather="map"></i><span>Fasilitas</span></a>
-                    </li>
-                    <li>
-                        <a class="nav-link menu-title  link-nav {{ prefixActive('warga.persyaratan') }}"
-                            href="{{ route('warga.persyaratan') }}"><i data-feather="file-text"></i><span>Persyaratan
-                                Administratif</span></a>
-                    </li> --}}
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

@@ -46,7 +46,7 @@ class DemandController extends Controller
                     $deman->save();
                 }
             });
-            return redirect()->route('mcs.demand.index')->with('success', "Data berhasil telah diterima"); 
+            return redirect()->route('mcs.demand.index')->with('success', "Data berhasil telah diterima");
         } catch (\Throwable $th) {
             throw $th;
         };
@@ -54,24 +54,12 @@ class DemandController extends Controller
 
     public function index()
     {
-        $gas = Demand::paginate(5);
+        $gas = Demand::get();
         return view('MCS.Gas.index-gas', compact('gas'));
     }
 
     public function create()
     {
         return view('MCS.Gas.create-gas');
-    }
-
-    public function store(Request $request)
-    {
-
-        // $create = Demand::create([
-        //     'name' => "Pengajuan " . auth()->user()->name,
-        //     'customer_id' => auth()->user()->id,
-        //     'request_gas' => (float) $request->input('inp_requestgas')
-        // ]);
-
-        // return redirect()->route('customer.demand.index');
     }
 }

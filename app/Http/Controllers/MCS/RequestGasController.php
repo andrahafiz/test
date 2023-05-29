@@ -10,7 +10,7 @@ class RequestGasController extends Controller
 {
     public function index()
     {
-        $gas = Gas::paginate(5);
+        $gas = Gas::get();
         return view('MCS.RequestGas.index-gas', compact('gas'));
     }
 

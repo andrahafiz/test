@@ -68,11 +68,11 @@
                                     <table style="width: 650px; margin: 0 auto; margin-bottom: 30px;">
                                         <tbody>
                                             <tr>
-                                                <td>
+                                                {{-- <td>
                                                     <a href="index.html"><img class="img-fluid"
-                                                            src="https://laravel.pixelstrap.com/viho/assets/images/logo/logo.png"
+                                                            src="https://cdn-2.tstatic.net/surabaya/foto/bank/images/logo-pgn.jpg"
                                                             alt="" /></a>
-                                                </td>
+                                                </td> --}}
                                                 <td style="text-align: right; color: #999;"><span>Perusahaan Gas
                                                         Negara</span></td>
                                             </tr>

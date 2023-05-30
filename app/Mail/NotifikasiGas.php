@@ -7,22 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class AuctionMail extends Mailable
+class NotifikasiGas extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
-    public $pelanggan;
+    public $data;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($pelanggan, $details)
+    public function __construct($data)
     {
-        $this->details = $details;
-        $this->pelanggan = $pelanggan;
+        $this->data = $data;
     }
 
     /**
@@ -32,7 +30,7 @@ class AuctionMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Lelang Gas PGN')
-            ->view('email_lelang');
+        return $this->subject('Notifikasi Gas Yang Didapat')
+            ->view('email_notifikasi_gas');
     }
 }

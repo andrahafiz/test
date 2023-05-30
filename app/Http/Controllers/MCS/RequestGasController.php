@@ -26,7 +26,8 @@ class RequestGasController extends Controller
             'request_gas' => 'required|numeric',
         ]);
         $create = Gas::create([
-            'period' => $validated['periode'],
+            'period' => $validated['periode'], 
+            'name' => 'MCS Bojonegara [' . now()->format('d M Y') . ']',
             'availability' => $validated['request_gas'],
         ]);
         return redirect()->route('mcs.request-gas.index')->with('success', "Permintaan gas berhasil diajukan, mohon menunggu!");

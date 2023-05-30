@@ -15,8 +15,7 @@ class GasController extends Controller
     public function approv(Gas $gas, Request $request)
     {
         $check = $gas->update([
-            'approval' => true,
-            'name' => 'Pengajuan Gas Periode [' . $gas->period->format('d M Y') . ']'
+            'approval' => true
         ]);
         if (!$check) {
             return redirect()->route('medco.approv.index')->with('error', "Terjadi kesalahan");

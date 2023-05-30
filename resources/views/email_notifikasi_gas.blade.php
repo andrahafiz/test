@@ -90,7 +90,7 @@
                                     <p>Terima kasih kepada {{ $data->customer->name }} telah bekerja sama dengan
                                         kami.
                                     </p>
-                                    <p>Dengan ini kami menyampaikan bahwa {{ $data->customer->name }} telah memiliki
+                                    <p>Dengan ini kami menyampaikan bahwa {{ $data->customer->name }} anda telah menerima gas sebanyak
                                         {{ $data->gas }} dari {{ $data->received_gas }} gas</p>
                                     <h6 style="text-align: center;">Total</h6>
                                     <p style="text-align: center;">

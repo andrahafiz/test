@@ -1,7 +1,7 @@
 @extends('layouts.main-mcs')
 
 @section('title')
-    Pengaduan Gas
+    Permintaan Gas
     {{ $title }}
 @endsection
 
@@ -15,7 +15,7 @@
             <h3>Pengiriman Gas</h3>
         @endslot
         {{-- <li class="breadcrumb-item">Pengaduan</li> --}}
-        <li class="breadcrumb-item active">Pengiriman Gas</li>
+        <li class="breadcrumb-item active">Permintaan Gas</li>
     @endcomponent
 
     <!-- Form Tambah Gas -->

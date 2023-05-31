@@ -67,6 +67,7 @@ Perusahaan Gas Negara
                                 @endforeach
                                 {{-- <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Simple</button> --}}
                             </tbody>
+                            Ini percobaab
                         </table>
                     </div>
                 </div>

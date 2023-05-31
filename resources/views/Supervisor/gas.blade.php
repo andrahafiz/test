@@ -12,10 +12,10 @@
 @section('container')
     @component('components.supervisor.breadcrumb')
         @slot('breadcrumb_title')
-            <h3>Permintaan Gas MCS</h3>
+            <h3>Gas MCS</h3>
         @endslot
         {{-- <li class="breadcrumb-item">Pengaduan</li> --}}
-        <li class="breadcrumb-item active">Data Permintaan Gas MCS</li>
+        <li class="breadcrumb-item active">Data Gas MCS</li>
     @endcomponent
 
     <!-- Form Tambah Gas -->
@@ -33,7 +33,7 @@
                     <div class="card-header pb-0">
                         <div class="row">
                             <div class="col-12">
-                                <h5>Data Permintaan Gas MCS</h5>
+                                <h5>Data Gas MCS</h5>
                             </div>
                         </div>
 
@@ -48,7 +48,6 @@
                                         <th>Periode</th>
                                         <th>Availability</th>
                                         <th>Status</th>
-                                        <th>Lelang</th>
                                         <th>Diterima</th>
                                         {{-- <th>Aksi</th> --}}
                                     </tr>
@@ -65,9 +64,6 @@
                                                     ? '<button class="btn btn-warning" type="button">Tersedia</button>'
                                                     : ' <button class="btn btn-primary" type="button">Selesai</button>' !!}
                                             </td>
-                                            <td>{!! $item->lelang == 0
-                                                ? '<button class="btn btn-warning" type="button">Off</button>'
-                                                : ' <button class="btn btn-primary" type="button">On</button>' !!} </td>
                                             <td>{!! $item->approval == 0
                                                 ? '<button class="btn btn-warning" type="button">Diajukan</button>'
                                                 : ' <button class="btn btn-primary" type="button">Selesai</button>' !!} </td>

@@ -15,7 +15,7 @@ class GasController extends Controller
     public function approv(Gas $gas, Request $request)
     {
         $check = $gas->update([
-            'approval' => true
+            'approval' => true, 'status' => true
         ]);
         if (!$check) {
             return redirect()->route('medco.approv.index')->with('error', "Terjadi kesalahan");

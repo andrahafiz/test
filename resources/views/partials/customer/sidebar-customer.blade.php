@@ -36,7 +36,7 @@
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('customer.demand.create') }}"
                             href="{{ route('customer.demand.create') }}">
-                            <i data-feather="box"></i><span>Permintaan
+                            <i data-feather="box"></i><span>Pengajuan
                                 Gas</span></a>
                     </li>
                     <li>

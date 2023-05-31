@@ -30,7 +30,7 @@
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('rscm.demand.request') }}"
                             href="{{ route('rscm.demand.request') }}">
-                            <i data-feather="box"></i><span>Pengajuan Gas</span></a>
+                            <i data-feather="box"></i><span>Data Permintaan Gas</span></a>
                     </li>
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('rscm.demand.index') }}"

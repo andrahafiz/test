@@ -23,7 +23,7 @@ class NotifikasiGas extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Perintah untuk memberitahukan jumlah gas yang di dapat kepada customer';
 
     /**
      * Create a new command instance.

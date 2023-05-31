@@ -54,26 +54,37 @@
                 <div class="col-xl-7 p-0">
 
                     <div class="login-card">
-                        <form class="theme-form login-form" method="POST" action="{{ route('customer.check-login') }}">
+                        <form class="theme-form login-form" method="POST" action="{{ route('customer.register') }}">
                             @csrf
-                            <h4>Login Pelanggan</h4>
-                            <h6>Selamat Datang Pelanggan.</h6>
+                            <h4>Pendaftaran Pelanggan</h4>
                             @if (session()->has('gagal'))
                             <div class="alert alert-danger dark alert-dismissible fade show" role="alert">
-                                <strong>Gagal login ! </strong> {{ session('gagal') }}.
-                                <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close" data-bs-original-title="" title=""></button>
-                            </div>
-                            @endif
-                            @if (session()->has('success'))
-                            <div class="alert alert-success dark alert-dismissible fade show" role="alert">
-                                <strong>Sukses ! </strong> {{ session('success') }}.
+                                <strong>Gagal Daftar ! </strong> {{ session('gagal') }}.
                                 <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close" data-bs-original-title="" title=""></button>
                             </div>
                             @endif
                             <div class="form-group">
+                                <label>Nama</label>
+                                <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
+                                    <input class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{ old('name') }}" type=" text" placeholder="Nama" autofocus>
+                                    @error('name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <div class="input-group"><span class="input-group-text"><i class="icon-email"></i></span>
+                                    <input class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{ old('email') }}" type=" text" placeholder="Email" autofocus>
+                                    @error('email')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label>Username</label>
                                 <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
-                                    <input class="form-control @error('username') is-invalid @enderror" name="username" id="username" value="{{ old('username') }}" type=" text" placeholder="Username" autofocus>
+                                    <input class="form-control @error('username') is-invalid @enderror" name="username" id="username" value="{{ old('username') }}" type=" text" placeholder="Username">
                                     @error('username')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -82,7 +93,7 @@
                             <div class="form-group">
                                 <label>Password</label>
                                 <div class="input-group"><span class="input-group-text"><i class="icon-lock"></i></span>
-                                    <input class="form-control @error('password') is-invalid @enderror" name="password" type="password" id="password" name="password" placeholder="*********">
+                                    <input class="form-control @error('password') is-invalid @enderror" name="password" type="text" id="password" name="password" placeholder="*********">
                                     @error('password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -90,9 +101,7 @@
                                 </div>
                                 <small class="text-danger pl-3">
                             </div>
-                            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Login</button>
-                            </div>
-                            <p class="text-dark">Daftar Customer?<a class="ms-2" href="{{ route('customer.register')}}">Klik disini</a></p>
+                            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Login</button></div>
                         </form>
                     </div>
                 </div>

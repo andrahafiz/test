@@ -16,9 +16,7 @@ use App\Http\Controllers\Admin\KelolaRTController;
 use App\Http\Controllers\Admin\KelolaRWController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\KelolaRTRWController;
-
-
-
+use App\Http\Controllers\Customer\LoginCustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +77,10 @@ use App\Http\Controllers\Admin\KelolaRTRWController;
 Route::get('/', function () {
     return view('login');
 })->name('customer.login')->middleware(['guest:web', 'PreventBackHistory']);
+Route::get('/register', function () {
+    return view('register');
+})->name('customer.form-register')->middleware(['guest:web', 'PreventBackHistory']);
+Route::post('/register', [LoginCustomerController::class, 'register'])->name('customer.register')->middleware(['guest:web', 'PreventBackHistory']);
 
 
 //RW

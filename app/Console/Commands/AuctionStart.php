@@ -16,14 +16,14 @@ class AuctionStart extends Command
      *
      * @var string
      */
-    protected $signature = 'auction:start';
+    protected $signature = 'gas:lelang';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Perintah untuk memulai lelang gas';
 
     /**
      * Create a new command instance.
@@ -42,7 +42,7 @@ class AuctionStart extends Command
      */
     public function handle()
     {
-     
+
         try {
             $gas = Gas::whereDate('period', Carbon::today())->where('lelang', 0)->first();
             $demand = Demand::where('gas_id', $gas->id)->get();

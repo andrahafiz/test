@@ -16,4 +16,9 @@ class Gas extends Model
     protected $dates = [
         'period'
     ];
+
+    public function demand()
+    {
+        return $this->hasMany(Demand::class, 'gas_id', 'id');
+    }
 }

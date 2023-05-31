@@ -14,14 +14,14 @@ class GetDataGas extends Command
      *
      * @var string
      */
-    protected $signature = 'command:gas';
+    protected $signature = 'gas:send';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Perintah untuk mengirimkan gas kepada customer';
 
     /**
      * Create a new command instance.

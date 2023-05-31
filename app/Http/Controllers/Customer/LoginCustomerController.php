@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Customer;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\CustomerStoreRequest;
 
 class LoginCustomerController extends Controller
 {
@@ -22,6 +25,22 @@ class LoginCustomerController extends Controller
                 'gagal' => 'Terjadi kesalahan pada login, email atau password salah',
             ]);
         }
+    }
+
+    public function formRegister()
+    {
+        return view('register');
+    }
+
+    public function register(CustomerStoreRequest $request)
+    {
+        Customer::create([
+            'name' => $request->name,
+            'username' => $request->username,
+            'email'     => $request->email,
+            'password'  => Hash::make($request->password)
+        ]);
+        return redirect()->route('customer.login')->with('success', 'Anda telah berhasil mendaftar, silahkan login dengan username dan password anda');
     }
     public function logout(Request $request)
     {

@@ -67,11 +67,11 @@
                                             <td>{{ $item->availability }}</td>
                                             <td>
                                                 {!! $item->status == 0
-                                                    ? '<button class="btn btn-warning" type="button">Tersedia</button>'
-                                                    : ' <button class="btn btn-primary" type="button">Selesai</button>' !!}
+                                                    ? '<button class="btn btn-warning" type="button">Tidak Tersedia</button>'
+                                                    : ' <button class="btn btn-primary" type="button">Tersedia</button>' !!}
                                             </td>
                                             <td>{!! $item->approval == 0
-                                                ? '<button class="btn btn-warning" type="button">Diajukan</button>'
+                                                ? '<button class="btn btn-warning" type="button">Diajuphpkan</button>'
                                                 : ' <button class="btn btn-primary" type="button">Selesai</button>' !!} </td>
                                             {{-- <td>
                                                 <x-ButtonStatus type="{{ $item->status }}">

@@ -24,7 +24,7 @@ class DemandController extends Controller
     public function store(DemandStoreRequest $request)
     {
         $create = Demand::create([
-            'name' => "Pengajuan " . auth()->user()->name,
+            'name' => "Pengajuan Gas " . auth()->user()->name,
             'customer_id' => auth()->user()->id,
             'request_gas' => (float) $request->input('inp_requestgas')
         ]);

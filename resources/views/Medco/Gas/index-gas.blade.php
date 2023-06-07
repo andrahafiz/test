@@ -1,7 +1,7 @@
 @extends('layouts.main-medco')
 
 @section('title')
-    Perusahaan Gas Negara
+    Medco Energy
     {{ $title }}
 @endsection
 
@@ -15,7 +15,7 @@
             <h3>Permintaan Gas Medco</h3>
         @endslot
         {{-- <li class="breadcrumb-item">Pengaduan</li> --}}
-        <li class="breadcrumb-item active">Data Permintaan Gas Medco</li>
+        <li class="breadcrumb-item active">Data Permintaan Gas</li>
     @endcomponent
 
     <!-- Form Tambah Gas -->
@@ -33,7 +33,7 @@
                     <div class="card-header pb-0">
                         <div class="row">
                             <div class="col">
-                                <h5>Data Permintaan Gas Medco</h5>
+                                <h5>Data Permintaan Gas</h5>
                             </div>
                         </div>
 
@@ -47,7 +47,7 @@
                                         <th>Judul</th>
                                         <th>Periode</th>
                                         <th>Availability</th>
-                                        <th>Aksi</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,7 +56,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->name ?? '-' }}</td>
                                             <td>{{ $item->period?->format('d M Y') ?? '-' }}</td>
-                                            <td>{{ $item->availability }}</td>
+                                            <td>{{ $item->availability }} MMSCFD</td>
                                             <td>
                                                 @if ($item->approval == 0)
                                                     <a href="{{ route('medco.approv.create', $item->id) }}">

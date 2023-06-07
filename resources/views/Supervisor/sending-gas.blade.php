@@ -1,7 +1,7 @@
 @extends('layouts.main-supervisor')
 
 @section('title')
-    Pengaduan Gas
+    Penyaluran Gas
     {{ $title }}
 @endsection
 
@@ -12,10 +12,10 @@
 @section('container')
     @component('components.supervisor.breadcrumb')
         @slot('breadcrumb_title')
-            <h3>Pengiriman Gas</h3>
+            <h3>Penyaluran Gas</h3>
         @endslot
         {{-- <li class="breadcrumb-item">Pengaduan</li> --}}
-        <li class="breadcrumb-item active">Pengiriman Gas</li>
+        <li class="breadcrumb-item active">Penyaluran Gas</li>
     @endcomponent
 
     <!-- Form Tambah Gas -->
@@ -33,7 +33,7 @@
                     <div class="card-header pb-0">
                         <div class="row">
                             <div class="col-12">
-                                <h5>Data Permintaan Gas</h5>
+                                <h5>Data Penyaluran Gas</h5>
                                 <p class="m-t-10 f-w-600"> Tanggal : {{ tanggal_indo(now()->today()) }}</p>
                             </div>
                         </div>

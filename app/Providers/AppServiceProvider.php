@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $project_title = '| Migas';
+        $project_title = ' ';
         View::share('title', $project_title);
         Schema::defaultStringLength(191);
         Paginator::useBootstrap();

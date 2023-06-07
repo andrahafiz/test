@@ -1,7 +1,7 @@
 @extends('layouts.main-customer')
 
 @section('title')
-    Pengaduan Gas
+    Data Permintaan Gas
     {{ $title }}
 @endsection
 
@@ -62,8 +62,8 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->name ?? '-' }}</td>
-                                            <td>{{ $item->request_gas }}</td>
-                                            <td>{{ $item->received_gas ?? 'Proses' }}</td>
+                                            <td>{{ $item->request_gas }} BBTU</td>
+                                            <td>{{ $item->received_gas ?? 'Proses' }} MMSCFD</td>
                                             <td>{{ $item->gases?->period ?? '-' }}</td>
                                             <td>
                                                 <x-ButtonStatus type="{{ $item->status }}">

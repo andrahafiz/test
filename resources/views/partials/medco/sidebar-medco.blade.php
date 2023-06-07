@@ -30,7 +30,7 @@
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('medco.approv.*') }}"
                             href="{{ route('medco.approv.index') }}">
-                            <i data-feather="send"></i><span>Request Gas</span></a>
+                            <i data-feather="send"></i><span>Data Permintaan Gas</span></a>
                     </li>
                     </li>
                 </ul>

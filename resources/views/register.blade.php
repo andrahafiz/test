@@ -101,7 +101,7 @@
                                 </div>
                                 <small class="text-danger pl-3">
                             </div>
-                            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Login</button></div>
+                            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Daftar</button></div>
                         </form>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 @extends('layouts.main-mcs')
 
 @section('title')
-    Pengaduan Gas
+    Approval Permintaan
     {{ $title }}
 @endsection
 
@@ -12,10 +12,10 @@
 @section('container')
     @component('components.mcs.breadcrumb')
         @slot('breadcrumb_title')
-            <h3>Data Permintaan Gas ({{ now()->format('Y-m-d') }})</h3>
+            <h3>Approval Permintaan ({{ now()->format('Y-m-d') }})</h3>
         @endslot
         {{-- <li class="breadcrumb-item">Pengaduan</li> --}}
-        <li class="breadcrumb-item active">Data Permintaan Gas</li>
+        <li class="breadcrumb-item active">Approval Permintaan</li>
     @endcomponent
     <div class="container-fluid">
         <div class="row">
@@ -32,7 +32,7 @@
 
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h5>Pengajuan Permintaan</h5>
+                        <h5>Approval Permintaan</h5>
                     </div>
                     <div class="card-body">
                         <form class="theme-form" enctype="multipart/form-data" method="POST"

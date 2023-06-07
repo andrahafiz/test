@@ -58,7 +58,7 @@
                             </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-primary" type="submit">Ajukan</button>
+                        <button class="btn btn-primary" type="submit">Kirim</button>
                         <a href="{{ URL::previous() }}">
                             <button class="btn btn-secondary" type="button">Batal</button>
                         </a>

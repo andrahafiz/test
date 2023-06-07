@@ -92,7 +92,7 @@
                             </div>
                             <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Login</button>
                             </div>
-                            <p class="text-dark">Daftar Customer?<a class="ms-2" href="{{ route('customer.register')}}">Klik disini</a></p>
+                            <p class="text-dark">Don't Have Account?<a class="ms-2" href="{{ route('customer.register')}}">Click Here</a></p>
                         </form>
                     </div>
                 </div>

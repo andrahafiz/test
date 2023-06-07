@@ -46,7 +46,7 @@ Perusahaan Gas Negara
                                     <th>Judul</th>
                                     <th>Periode</th>
                                     <th>Availability</th>
-                                    <th>Gas Yang Disalurkan</th>
+                                    <th>Gas Yang Sudah Disalurkan</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -56,8 +56,8 @@ Perusahaan Gas Negara
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name ?? '-' }}</td>
                                     <td>{{ $item->period?->format('M-Y') ?? '-' }}</td>
-                                    <td>{{ $item->availability }}</td>
-                                    <td>{{ $item->demand()->sum('gas') }}</td>
+                                    <td>{{ $item->availability }} MMSCFD</td>
+                                    <td>{{ $item->demand()->sum('gas') }} MMSCFD</td>
                                     <td>
                                         {!! $item->status == 0
                                         ? '<button class="btn btn-warning" type="button">Tersedia</button>'
@@ -67,7 +67,6 @@ Perusahaan Gas Negara
                                 @endforeach
                                 {{-- <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Simple</button> --}}
                             </tbody>
-                            Ini percobaab
                         </table>
                     </div>
                 </div>

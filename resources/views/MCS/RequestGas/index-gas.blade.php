@@ -64,14 +64,14 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->name ?? '-' }}</td>
                                             <td>{{ $item->period?->format('M-Y') ?? '-' }}</td>
-                                            <td>{{ $item->availability }}</td>
+                                            <td>{{ $item->availability }} MMSCFD</td>
                                             <td>
                                                 {!! $item->status == 0
                                                     ? '<button class="btn btn-warning" type="button">Tidak Tersedia</button>'
                                                     : ' <button class="btn btn-primary" type="button">Tersedia</button>' !!}
                                             </td>
                                             <td>{!! $item->approval == 0
-                                                ? '<button class="btn btn-warning" type="button">Diajuphpkan</button>'
+                                                ? '<button class="btn btn-warning" type="button">Diajukan</button>'
                                                 : ' <button class="btn btn-primary" type="button">Selesai</button>' !!} </td>
                                             {{-- <td>
                                                 <x-ButtonStatus type="{{ $item->status }}">

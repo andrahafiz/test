@@ -1,7 +1,7 @@
 @extends('layouts.main-rscm')
 
 @section('title')
-    Pengaduan Gas
+    Riwayat Permintaan Gas
     {{ $title }}
 @endsection
 
@@ -12,10 +12,10 @@
 @section('container')
     @component('components.rscm.breadcrumb')
         @slot('breadcrumb_title')
-            <h3>Data Permintaan Gas</h3>
+            <h3>Riwayat Permintaan Gas</h3>
         @endslot
         {{-- <li class="breadcrumb-item">Pengaduan</li> --}}
-        <li class="breadcrumb-item active">Data Permintaan Gas</li>
+        <li class="breadcrumb-item active">Riwayat Permintaan Gas</li>
     @endcomponent
 
     <!-- Form Tambah Gas -->
@@ -33,7 +33,7 @@
                     <div class="card-header pb-0">
                         <div class="row">
                             <div class="col-12">
-                                <h5>Data Permintaan Gas</h5>
+                                <h5>Riwayat Permintaan Gas</h5>
                             </div>
                         </div>
 

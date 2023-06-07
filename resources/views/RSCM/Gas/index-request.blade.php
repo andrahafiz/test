@@ -1,7 +1,7 @@
 @extends('layouts.main-rscm')
 
 @section('title')
-    Pengaduan Gas
+    Data Permintaan Gas
     {{ $title }}
 @endsection
 

@@ -40,7 +40,7 @@
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('mcs.demand.request') }}"
                             href="{{ route('mcs.demand.request') }}">
-                            <i data-feather="check-square"></i><span>Permintaan Gas</span></a>
+                            <i data-feather="check-square"></i><span>Approval Permintaan</span></a>
                     </li>
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('mcs.demand.index') }}"

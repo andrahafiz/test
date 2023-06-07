@@ -30,7 +30,7 @@
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('supervisor.sending.index') }}"
                             href="{{ route('supervisor.sending.index') }}">
-                            <i data-feather="send"></i><span>Peyaluran Gas</span></a>
+                            <i data-feather="send"></i><span>Penyaluran Gas</span></a>
                     </li>
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('supervisor.gas') }}"
@@ -45,7 +45,7 @@
                     <li>
                         <a class="nav-link menu-title link-nav {{ routeActive('supervisor.gas.pengajuan') }}"
                             href="{{ route('supervisor.gas.pengajuan') }}">
-                            <i data-feather="rotate-ccw"></i><span>Riwayat Penyaluran Gas</span></a>
+                            <i data-feather="rotate-ccw"></i><span>Riwayat Permintaan Gas</span></a>
                     </li>
                 </ul>
             </div>

@@ -70,3 +70,26 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        $("input[name='request_gas']").on("keyup", function() {
+            $("input[name='request_gas']").val(satuanText(this.value, ' MMSCFD'));
+        });
+        /* Fungsi */
+        function satuanText(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                satuan = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                satuan += separator + ribuan.join('.');
+            }
+
+            satuan = split[1] != undefined ? satuan + ',' + split[1] : satuan;
+            return prefix == undefined ? satuan : (satuan ? satuan + ' MMSCFD' : '');
+        }
+    </script>
+@endpush

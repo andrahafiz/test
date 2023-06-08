@@ -18,14 +18,11 @@ Route::middleware(['auth:mcs', 'PreventBackHistory'])->group(function () {
         return 'test';
     })->name('home');
 
-    // Route::get('request-gas', SendingGasController::class)->name('sending.gas');
     Route::controller(DemandController::class)
         ->group(function () {
             Route::get('/history-gas', 'index')->name('demand.index');
             Route::get('/request-gas', 'indexRequest')->name('demand.request');
             Route::post('/request-gas/approv', 'approv')->name('demand.approv');
-            // Route::post('/request-gas', 'store')->name('demand.store');
-            // Route::delete('/request-gas', 'delete')->name('demand.delete');
         });
 
     Route::controller(DemandController::class)
@@ -33,8 +30,6 @@ Route::middleware(['auth:mcs', 'PreventBackHistory'])->group(function () {
             Route::get('/history-gas', 'index')->name('demand.index');
             Route::get('/request-gas', 'indexRequest')->name('demand.request');
             Route::post('/request-gas/approv', 'approv')->name('demand.approv');
-            // Route::post('/request-gas', 'store')->name('demand.store');
-            // Route::delete('/request-gas', 'delete')->name('demand.delete');
         });
 
     Route::controller(RequestGasController::class)
@@ -43,7 +38,11 @@ Route::middleware(['auth:mcs', 'PreventBackHistory'])->group(function () {
             Route::get('/request-gas-mcs/request', 'create')->name('request-gas.create');
             Route::post('/request-gas-mcs/request', 'store')->name('request-gas.store');
         });
-    Route::get('sending-gas', SendingGasController::class)->name('sending.gas');
+
+    Route::controller(SendingGasController::class)
+        ->group(function () {
+            Route::get('/sending-gas', 'index')->name('sending.gas');
+            Route::get('/sending-gas/{demand}', 'show')->name('sending.form');
+            Route::post('/sending-gas/{demand}', 'send')->name('send.gas');
+        });
 });
-    
-    // });

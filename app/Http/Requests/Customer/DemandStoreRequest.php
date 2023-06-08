@@ -24,7 +24,7 @@ class DemandStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'inp_requestgas' => ['required', 'numeric']
+            'inp_requestgas' => ['required']
         ];
     }
 }

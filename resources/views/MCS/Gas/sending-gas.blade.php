@@ -69,6 +69,9 @@
                                             </td>
                                             <td>{{ $item->customer?->name ?? '-' }}</td>
                                             <td>
+                                                <a href="{{ route('mcs.sending.form', $item->id) }}"> <button
+                                                        class="btn btn-secondary mb-1 mr-1" type="button">Salurkan
+                                                        Gas</button></a>
                                                 <x-ButtonStatus type="{{ $item->status }}">
                                                 </x-ButtonStatus>
                                             </td>

@@ -26,9 +26,8 @@ class DemandController extends Controller
         $create = Demand::create([
             'name' => "Pengajuan Gas " . auth()->user()->name,
             'customer_id' => auth()->user()->id,
-            'request_gas' => (float) $request->input('inp_requestgas')
+            'request_gas' => (float) str_replace(['MMSCFD', '.'], '', $request->input('inp_requestgas'))
         ]);
-
         return redirect()->route('customer.demand.index');
     }
 

@@ -47,6 +47,11 @@
                             href="{{ route('supervisor.gas.pengajuan') }}">
                             <i data-feather="rotate-ccw"></i><span>Riwayat Permintaan Gas</span></a>
                     </li>
+                    <li>
+                        <a class="nav-link menu-title link-nav {{ routeActive('supervisor.produk') }}"
+                            href="{{ route('supervisor.produk') }}">
+                            <i data-feather="archive"></i><span>Produk</span></a>
+                    </li>
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

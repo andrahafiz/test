@@ -17,7 +17,7 @@ Route::middleware(['auth:mcs', 'PreventBackHistory'])->group(function () {
     Route::get('/dashboard', function () {
         return 'test';
     })->name('home');
-
+    Route::view('/produk', 'MCS.produk')->name('produk');
     Route::controller(DemandController::class)
         ->group(function () {
             Route::get('/history-gas', 'index')->name('demand.index');

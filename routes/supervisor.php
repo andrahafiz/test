@@ -15,6 +15,7 @@ Route::middleware(['guest:supervisor', 'PreventBackHistory'])->group(function ()
 
 Route::middleware(['auth:supervisor', 'PreventBackHistory'])->group(function () {
     Route::post('/logout', [LoginSupervisorController::class, 'logout'])->name('logout');
+    Route::view('/produk', 'Supervisor.produk')->name('produk');
     Route::controller(GasController::class)
         ->group(function () {
             Route::get('/pengajuan-gas', 'pengajuan')->name('gas.pengajuan');
